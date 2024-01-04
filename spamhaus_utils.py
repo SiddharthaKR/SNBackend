@@ -28,7 +28,7 @@ def spamhaus_token() -> str:
 def domain_report(domain: str):
     try:
         token = spamhaus_token()
-        # curl -s https://api.spamhaus.org/api/intel/v2/byobject/domain/google.com -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDI4Njg1NDksImV4cCI6MTcwMjk1NDk0OSwiaXNzIjoic2hhcGktYXV0aCIsImF1ZCI6ImludGVsIiwic3ViIjoiMjkwOTE3OTUiLCJ1c3IiOiJhbXJlc2hAZHVjay5jb20iLCJ0aWVyIjp7Imx2bCI6InN0ZCIsImFkcyI6IlhCTCxCQ0wsQ1NTLERPTUFJTiIsImFkdyI6MCwicW1zIjo1MDAwLCJxbWgiOjUwMDAsInJsX3FwaCI6NTAwMCwicmxfcXBtIjo1MDAwLCJybF9xcHMiOjUwMDB9fQ.jJGLNZwpZB_bfDEDHBg8yBw7zk75AKzht4vJcguvtsY'
+       
         print(f"Domain Report: {domain}")
         extracted = tldextract.extract(domain)
         response = requests.get(
