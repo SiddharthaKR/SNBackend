@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+sqlalchemy
+pymysql
+psycopg2
+python-dotenv
+autopep8
+requests
+python-multipart
+requests-toolbelt
+redis
+google-generativeai
+markdown
+numpy
+tldextract
+aiohttp

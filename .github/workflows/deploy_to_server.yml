@@ -1,0 +1,27 @@
+name: Deploy To Server
+on:
+    workflow_dispatch:
+    push:
+        paths:
+            - "./"
+        branches:
+            - "main"
+
+jobs:
+  build:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Establish connection and deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        key: ${{ secrets.SSH_KEY }}
+        # passphrase: ${{ secrets.SSH_PASSPHRASE }}
+        port: ${{ secrets.SSH_PORT }}
+        username: ${{ secrets.SSH_USERNAME }}
+        script: |
+            cd /home/ubuntu/SecureNet_Backend
+            git pull
+            git status
+            docker-compose -f docker-compose.yml up -d --build
